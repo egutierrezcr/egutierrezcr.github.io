@@ -112,21 +112,32 @@ const isActive = (p: string) => path === p ? 'active' : '';
       });
 
       // Video embed click-to-play (facade pattern):
-      // Each .video-thumb click replaces the thumbnail with the actual YouTube iframe.
-      // Until clicked, no YouTube script loads, so the page stays fast.
+      // Each .video-thumb click replaces the thumbnail with the actual player
+      // (YouTube iframe via data-video-id, or a local <video> via data-video-src).
+      // Until clicked, no video loads, so the page stays fast.
       document.querySelectorAll('.video-embed').forEach(function (wrap) {
         var thumb = wrap.querySelector('.video-thumb');
         var id = wrap.getAttribute('data-video-id');
-        if (!thumb || !id) return;
+        var src = wrap.getAttribute('data-video-src');
+        if (!thumb || (!id && !src)) return;
         thumb.addEventListener('click', function (ev) {
           ev.preventDefault();
-          var iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-          iframe.title = thumb.getAttribute('aria-label') || 'YouTube video';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-          iframe.setAttribute('allowfullscreen', '');
-          iframe.setAttribute('frameborder', '0');
-          wrap.replaceChild(iframe, thumb);
+          var player;
+          if (id) {
+            player = document.createElement('iframe');
+            player.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+            player.title = thumb.getAttribute('aria-label') || 'YouTube video';
+            player.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            player.setAttribute('allowfullscreen', '');
+            player.setAttribute('frameborder', '0');
+          } else {
+            player = document.createElement('video');
+            player.src = src;
+            player.controls = true;
+            player.autoplay = true;
+            player.playsInline = true;
+          }
+          wrap.replaceChild(player, thumb);
         });
       });
     </script>
