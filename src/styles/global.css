@@ -570,6 +570,12 @@ img { max-width: 100%; display: block; }
 .area-icon.finance { background: var(--accent-50); color: var(--accent); }
 .area-icon.data { background: var(--warm-50); color: var(--warm); }
 .area-icon.funds { background: var(--coral-50); color: var(--coral); }
+.area-icon.flagship { background: var(--warm-50); color: var(--warm); }
+
+.area-card.flagship {
+  border: 1px solid var(--warm);
+  position: relative;
+}
 
 .area-card h3 {
   font-size: 15px;
