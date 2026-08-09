@@ -1,0 +1,129 @@
+/* Homepage redesign from Claude Design (My Intelligent System Design System project).
+   Namespaced under .mis-page so it never collides with global.css classes used
+   on every other page (.hero, .btn, .nav, etc. already exist there with different rules). */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+.mis-page {
+  --mis-navy: #0b1f4d;
+  --mis-navy2: #33507f;
+  --mis-azul: #1b56d3;
+  --mis-azur: #5e93f7;
+  --mis-ambar: #f5b301;
+  --mis-gris: #93a3b8;
+  --mis-linea: #dce4ef;
+  --mis-fondo: #f6f9fd;
+  --mis-panel: #fff;
+  --mis-verde: #12b981;
+  --mis-disp: 'Space Grotesk', var(--sans);
+  --mis-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --mis-e1: 8px; --mis-e2: 12px; --mis-e3: 18px; --mis-e4: 28px; --mis-e5: 44px; --mis-e6: 72px;
+  --mis-pad: clamp(56px, 8vh, 96px);
+  --mis-env: 1120px;
+
+  display: block;
+  position: relative;
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--mis-navy);
+  background: var(--mis-fondo);
+  overflow-x: hidden;
+}
+
+:root[data-theme="dark"] .mis-page {
+  --mis-navy: #e8edf7;
+  --mis-navy2: #a9bcda;
+  --mis-azul: #7fb0ff;
+  --mis-azur: #5e93f7;
+  --mis-ambar: #f5b301;
+  --mis-gris: #6a7c98;
+  --mis-linea: #26324a;
+  --mis-fondo: #0a0e1a;
+  --mis-panel: #121a2e;
+  --mis-verde: #12b981;
+}
+
+.mis-page h1, .mis-page h2, .mis-page h3, .mis-page h4 {
+  margin: 0; font-family: var(--mis-disp); font-weight: 700; line-height: 1.08; letter-spacing: -.028em;
+}
+.mis-page p { margin: 0 0 1em; text-wrap: pretty; }
+.mis-page a { color: var(--mis-azul); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.mis-page a:hover { color: var(--mis-navy); }
+.mis-page a:focus-visible, .mis-page button:focus-visible { outline: 2.5px solid var(--mis-azul); outline-offset: 3px; border-radius: 3px; }
+
+.mis-puntos { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .55; background-image: radial-gradient(var(--mis-linea) 1px, transparent 1px); background-size: 22px 22px; }
+.mis-env { max-width: var(--mis-env); margin: 0 auto; padding: 0 clamp(20px, 4vw, 32px); position: relative; z-index: 1; }
+.mis-mono { font-family: var(--mis-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--mis-navy2); }
+
+/* ── hero ── */
+.mis-hero { padding: clamp(48px, 8vh, 88px) 0 clamp(40px, 6vh, 64px); position: relative; }
+.mis-hero .mis-env { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.mis-hero .mis-kick { display: flex; align-items: center; gap: 10px; margin-bottom: var(--mis-e3); font-family: var(--mis-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--mis-navy2); }
+.mis-hero .mis-kick s { width: 26px; height: 1px; background: var(--mis-linea); text-decoration: none; flex: 0 0 26px; }
+.mis-hero h1 { font-size: clamp(33px, 5.4vw, 58px); letter-spacing: -.04em; margin: 0 0 var(--mis-e3); color: var(--mis-navy); }
+.mis-hero h1 em { font-style: normal; color: var(--mis-azul); }
+.mis-hero .mis-lead { font-size: clamp(16.5px, 1.9vw, 19.5px); line-height: 1.5; color: var(--mis-navy2); max-width: 44ch; margin: 0 0 var(--mis-e4); }
+.mis-acciones { display: flex; flex-wrap: wrap; gap: var(--mis-e2) var(--mis-e3); align-items: center; }
+.mis-btn { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; background: var(--mis-ambar); color: #241900; font-weight: 700; font-size: 15.5px; text-decoration: none; padding: 13px 24px; border-radius: 6px; transition: transform .18s, background .18s; border: 0; }
+.mis-btn:hover { background: #ffc528; color: #241900; transform: translateY(-2px); }
+.mis-btn.mis-fantasma { background: transparent; border: 1.5px solid var(--mis-linea); color: var(--mis-navy); }
+.mis-btn.mis-fantasma:hover { border-color: var(--mis-azul); color: var(--mis-azul); background: var(--mis-panel); }
+.mis-lienzo { position: relative; }
+.mis-lienzo svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* ── cifras ── */
+.mis-cifras { border-top: 1px solid var(--mis-linea); border-bottom: 1px solid var(--mis-linea); background: var(--mis-panel); position: relative; z-index: 1; }
+.mis-cifras .mis-env { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; }
+.mis-cifra { padding: var(--mis-e4) var(--mis-e3) var(--mis-e4) 0; border-right: 1px solid var(--mis-linea); }
+.mis-cifra:last-child { border-right: 0; }
+.mis-cifra b { display: block; font-family: var(--mis-disp); font-weight: 700; font-size: clamp(24px, 3vw, 32px); letter-spacing: -.035em; line-height: 1; margin-bottom: 7px; color: var(--mis-navy); }
+.mis-cifra span { display: block; font-family: var(--mis-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--mis-navy2); line-height: 1.6; }
+@media (max-width: 640px) { .mis-cifra { border-right: 0; border-bottom: 1px solid var(--mis-linea); padding: var(--mis-e3) 0; } .mis-cifra:last-child { border-bottom: 0; } }
+
+/* ── bloques ── */
+.mis-blq { padding: var(--mis-pad) 0; position: relative; z-index: 1; }
+.mis-blq + .mis-blq { border-top: 1px solid var(--mis-linea); }
+.mis-blq.mis-panel { background: var(--mis-panel); border-top: 1px solid var(--mis-linea); border-bottom: 1px solid var(--mis-linea); }
+.mis-kick { font-family: var(--mis-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--mis-navy2); margin-bottom: var(--mis-e2); }
+.mis-tit { font-size: clamp(26px, 3.6vw, 38px); margin-bottom: var(--mis-e3); max-width: 24ch; color: var(--mis-navy); }
+.mis-baja { font-size: 17.5px; color: var(--mis-navy2); max-width: 58ch; margin: 0 0 var(--mis-e5); }
+
+/* ── tarjetas nodo ── */
+.mis-rej { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--mis-e3); }
+.mis-nodo { background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; padding: var(--mis-e4) var(--mis-e3) var(--mis-e3); position: relative; transition: border-color .2s, transform .2s; text-decoration: none; color: inherit; display: block; }
+a.mis-nodo:hover { border-color: var(--mis-azul); transform: translateY(-2px); color: inherit; }
+.mis-nodo .mis-et { font-family: var(--mis-mono); font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--mis-navy2); display: block; margin-bottom: var(--mis-e2); }
+.mis-nodo .mis-pt { position: absolute; top: var(--mis-e3); right: var(--mis-e3); width: 8px; height: 8px; border-radius: 50%; background: var(--mis-verde); }
+.mis-nodo .mis-pt.mis-esp { background: var(--mis-ambar); }
+.mis-nodo h3 { font-size: 19.5px; margin-bottom: var(--mis-e1); letter-spacing: -.024em; color: var(--mis-navy); }
+.mis-nodo p { font-size: 14.5px; color: var(--mis-navy2); margin: 0; }
+.mis-nodo .mis-barras { display: flex; flex-direction: column; gap: 4px; margin-top: var(--mis-e3); }
+.mis-nodo .mis-barras i { height: 3px; border-radius: 2px; background: var(--mis-linea); display: block; }
+.mis-nodo .mis-barras i:first-child { width: 64%; background: var(--mis-azur); }
+.mis-nodo .mis-barras i:last-child { width: 38%; }
+
+/* ── lista de trabajo ── */
+.mis-obras { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--mis-linea); }
+.mis-obra { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: var(--mis-e3) var(--mis-e4); align-items: start; padding: var(--mis-e4) 0; border-bottom: 1px solid var(--mis-linea); text-decoration: none; color: inherit; }
+.mis-obra:hover { color: inherit; }
+.mis-obra:hover h3 { color: var(--mis-azul); }
+.mis-obra .mis-anio { font-family: var(--mis-mono); font-size: 11.5px; letter-spacing: .1em; color: var(--mis-navy2); padding-top: 5px; }
+.mis-obra h3 { font-size: clamp(20px, 2.4vw, 25px); margin-bottom: var(--mis-e1); color: var(--mis-navy); }
+.mis-obra p { font-size: 15px; color: var(--mis-navy2); margin: 0; max-width: 62ch; }
+.mis-obra .mis-datos { display: flex; flex-wrap: wrap; gap: var(--mis-e1) var(--mis-e3); margin-top: var(--mis-e2); }
+.mis-obra .mis-datos span { font-family: var(--mis-mono); font-size: 11px; letter-spacing: .05em; color: var(--mis-navy); border: 1px solid var(--mis-linea); background: var(--mis-panel); border-radius: 100px; padding: 5px 11px; }
+.mis-obra .mis-flecha { font-family: var(--mis-mono); font-size: 16px; color: var(--mis-gris); padding-top: 4px; }
+.mis-obra:hover .mis-flecha { color: var(--mis-azul); }
+@media (max-width: 720px) { .mis-obra { grid-template-columns: minmax(0, 1fr) auto; gap: var(--mis-e2); } .mis-obra .mis-anio { grid-column: 1/-1; padding-top: 0; } }
+
+/* ── cierre ── */
+.mis-cierre { background: var(--mis-navy); color: #fff; padding: var(--mis-e6) 0; position: relative; z-index: 1; }
+:root[data-theme="dark"] .mis-cierre { background: var(--mis-panel); }
+.mis-cierre h2 { font-size: clamp(27px, 4vw, 42px); max-width: 18ch; margin: 0 0 var(--mis-e3); color: #fff; }
+.mis-cierre p { color: #a9bcda; font-size: 17.5px; max-width: 44ch; margin: 0 0 var(--mis-e4); }
+.mis-cierre .mis-kick { color: var(--mis-ambar); }
+.mis-cierre a.mis-txt { color: #cfe0ff; font-family: var(--mis-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+.mis-cierre a.mis-txt:hover { color: var(--mis-ambar); }
+
+@media (max-width: 860px) { .mis-hero .mis-env { grid-template-columns: minmax(0, 1fr); } .mis-lienzo { order: -1; max-width: 520px; } }
+@media (prefers-reduced-motion: reduce) { .mis-page * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

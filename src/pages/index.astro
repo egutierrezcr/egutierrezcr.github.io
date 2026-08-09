@@ -1,252 +1,209 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-// Get the 2 most recent blog posts to feature on home.
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const latestPosts = allPosts
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 2);
-const fmtDateEn = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-const fmtDateEs = (d: Date) => d.toLocaleDateString('es-CR', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
 <Layout title="Emmanuel Gutiérrez Pizarro - Data, AI & territorial intelligence">
 
   <!-- ========== ENGLISH ========== -->
   <div class="lang-en">
-    <div class="container">
-      <section class="hero">
-        <div>
-          <h1>Emmanuel Gutiérrez Pizarro</h1>
-          <p class="hero-tagline">Director, My Intelligent System &amp; JP Asesores &middot; Systems, AI and territorial intelligence</p>
-          <p class="hero-desc">
-            I install intelligent systems, automation and applied AI for businesses, organizations and
-            institutions through <strong>My Intelligent System</strong>. For 13+ years I have also turned
-            evidence into decisions in territorial intelligence, data and financial sustainability across
-            Costa Rica and Central America, including the country's first 3D digital twin of a district.
-          </p>
-          <div class="hero-btns">
-            <a href="https://myintelligentsystem.com" class="btn btn-primary" target="_blank">My Intelligent System ↗</a>
-            <a href="https://myintelligentsystem.com/tour/" class="btn btn-outline" target="_blank">Tour my 3D office ↗</a>
-            <a href="/contacto" class="btn btn-outline">Get in touch</a>
-            <a href="/files/emmanuel-gutierrez.vcf" class="btn btn-outline" download>Save contact card</a>
-          </div>
-        </div>
-        <div class="avatar">
-          <img src="/img/profile.jpg" alt="Emmanuel Gutiérrez Pizarro" />
-        </div>
-      </section>
+  <div class="mis-page">
+    <div class="mis-puntos"></div>
 
-      <div class="stats-bar">
-        <div class="stat"><div class="stat-num">13+</div><div class="stat-label">Years of experience</div></div>
-        <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Organizations served</div></div>
-        <div class="stat"><div class="stat-num">95.1%</div><div class="stat-label">Nosara Census coverage</div></div>
-        <div class="stat"><div class="stat-num">$55M+</div><div class="stat-label">Fiscal gap quantified</div></div>
+    <section class="mis-hero"><div class="mis-env">
+      <div>
+        <div class="mis-kick"><s></s><span>Territorial intelligence &middot; Costa Rica</span></div>
+        <h1>I read territories, institutions and companies as <em>systems</em></h1>
+        <p class="mis-lead">Data, fiscal evidence and tools that stay where they were built. Thirteen years alongside communities, social organizations and institutions in Central America.</p>
+        <div class="mis-acciones">
+          <a class="mis-btn" href="/proyectos">See the work</a>
+          <a class="mis-btn mis-fantasma" href="https://myintelligentsystem.com" target="_blank">My Intelligent System &#8599;</a>
+          <a class="mis-btn mis-fantasma" href="https://myintelligentsystem.com/tour/" target="_blank">Tour my 3D office &#8599;</a>
+          <a class="mis-btn mis-fantasma" href="/contacto">Write to me &rarr;</a>
+        </div>
       </div>
+      <div class="mis-lienzo" id="mis-hero-en"></div>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">Recently delivered</p>
-        <h2 class="section-title">What I've shipped &middot; open to new projects</h2>
-        <div class="pub-section" style="margin-top: 1rem;">
-          <div class="pub-item"><a href="https://myintelligentsystem.com" target="_blank" style="text-decoration:none; color:inherit;"><div class="pub-meta"><h3>My Intelligent System <span class="pub-badge pub-badge-done">Launched</span></h3><div class="pub-source">Intelligent systems, automation and applied AI installed for businesses and organizations</div></div></a></div>
-          <div class="pub-item"><a href="https://desarrollocomunitario.org/gemelodigital" target="_blank" style="text-decoration:none; color:inherit;"><div class="pub-meta"><h3>Nosara 3D Digital Twin <span class="pub-badge pub-badge-done">Delivered</span></h3><div class="pub-source">First district-level 3D digital twin in Costa Rica: 400+ data layers, self-updating simulations</div></div></a></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Operating Systems for Territorial Intelligence <span class="pub-badge pub-badge-done">Delivered</span></h3><div class="pub-source">Framework: Census + Fiscal Balance + Mapa de Voces + SIG cartography + locality reports</div></div></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Predictive models for territorial decisions <span class="pub-badge pub-badge-done">Delivered</span></h3><div class="pub-source">Methodology: auditable models with a 6-check protocol, simple-to-complex catalog</div></div></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Governance models for community-institutional restoration <span class="pub-badge pub-badge-done">Delivered</span></h3><div class="pub-source">Three-function framework (Architect · Oracle · Cycle-breaker) for breaking extractive feedback loops</div></div></div>
-        </div>
-        <div style="margin-top: 1.25rem; display:flex; gap:10px; flex-wrap:wrap;"><a href="/contacto" class="btn btn-primary">Open to new projects — let's talk</a><a href="/publicaciones" class="btn btn-outline">See all publications</a></div>
-      </section>
+    <section class="mis-cifras"><div class="mis-env">
+      <div class="mis-cifra"><b>USD 55M+</b><span>Documented annual fiscal gap</span></div>
+      <div class="mis-cifra"><b>95.1%</b><span>Household coverage, Nosara census</span></div>
+      <div class="mis-cifra"><b>60+</b><span>Organizations and SMEs supported</span></div>
+      <div class="mis-cifra"><b>13</b><span>Years building installed capacity</span></div>
+      <div class="mis-cifra"><b>400+</b><span>Data layers in the Nosara digital twin</span></div>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">Focus</p>
-        <h2 class="section-title">What I work on</h2>
-        <div class="areas-grid">
-          <div class="area-card flagship">
-            <div class="area-icon flagship"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-            <h3>Forward-deployed engineering</h3>
-            <p>Embedded, hands-on engineering for people, entities and businesses. I work inside your operation, on your real data, and ship a running system before I leave, not a slide deck.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon fiscal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-            <h3>Territorial intelligence</h3>
-            <p>Subnational fiscal and territorial balances, data systems and evidence for decisions at the district and municipal level.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon finance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <h3>Data science</h3>
-            <p>Analysis, indicators and data systems that turn raw information into usable evidence for action.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon data"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="6" x2="12" y2="10"/><line x1="10.5" y1="13.5" x2="5.5" y2="16.5"/><line x1="13.5" y1="13.5" x2="18.5" y2="16.5"/><line x1="6" y1="18" x2="18" y2="18"/></svg></div>
-            <h3>Systems thinking and complex systems</h3>
-            <p>Reading territories as complex adaptive systems: feedback loops, leverage points and emergent dynamics. The next chapter of how I work.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon fiscal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg></div>
-            <h3>Knowledge engineering for AI</h3>
-            <p>Curated knowledge graphs, ontologies and auditable data systems. The foundation that makes RAG and agentic AI actually work: domain-specific, evidence-graded, replicable.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon funds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
-            <h3>Applied AI for social good</h3>
-            <p>Artificial intelligence applied to social and collective challenges, from automation to territorial analysis.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon finance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg></div>
-            <h3>Governance &amp; civic tech</h3>
-            <p>Digital governance, govtech and participatory processes: platforms that give communities a real say, built for data-protection compliance.</p>
-          </div>
-        </div>
-      </section>
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">What I do</div>
+      <h2 class="mis-tit">Four practices with the same lens</h2>
+      <p class="mis-baja">Feedback loops, leverage points and emergent dynamics: complex systems thinking is what shapes how I design tools, read evidence and frame decisions.</p>
+      <div class="mis-rej">
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">01 &middot; Territory</span><h3>Territorial intelligence</h3><p>Census, cadastre, digital twin and geospatial planning to see the district as it actually is.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">02 &middot; Fiscal</span><h3>Subnational public finance</h3><p>Fiscal balances, gap quantification and financial sustainability for local governments and organizations.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">03 &middot; Data</span><h3>Data science and evaluation</h3><p>Applied research, results measurement and impact evaluation with methods that survive scrutiny.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt mis-esp"></i><span class="mis-et">04 &middot; Applied AI</span><h3>AI for collective good</h3><p>Applied AI for social good, data sovereignty and education. The chapter I am writing now.</p><div class="mis-barras"><i></i><i></i></div></div>
+      </div>
+    </div></section>
 
-      <section class="projects">
-        <p class="section-tag">Selected projects</p>
-        <h2 class="section-title">Built with impact</h2>
-        <div class="project-list">
-          <div class="project-item"><div class="project-year">2026 - now</div><div class="project-info"><h3>My Intelligent System</h3><p>Intelligent systems, automation and applied AI installed for businesses and organizations. Proprietary kernel, closed price per stage, no monthly fee.</p><div class="project-tags"><span class="tag tag-flagship">Flagship</span><span class="tag tag-systems">Systems &amp; AI</span></div></div></div>
-          <div class="project-item"><div class="project-year">2026</div><div class="project-info"><h3>Nosara 3D Digital Twin</h3><p>First district-level 3D digital twin in Costa Rica, integrating 400+ data layers, historical cartography from 1944 to today, and self-updating climate and risk simulations.</p><div class="project-tags"><span class="tag tag-delivered">Delivered</span><span class="tag tag-data">Data</span></div></div></div>
-          <div class="project-item"><div class="project-year">2024</div><div class="project-info"><h3>Nosara Community Census</h3><p>First district-level census in Costa Rica, with 95.1% household coverage and technical advisory from INEC. Foundation of the Operating Systems for Territorial Intelligence framework.</p><div class="project-tags"><span class="tag tag-delivered">Delivered</span><span class="tag tag-data">Data</span><span class="tag tag-fiscal">Territorial</span></div></div></div>
-          <div class="project-item"><div class="project-year">2026</div><div class="project-info"><h3>Nosara Territorial Fiscal Balance</h3><p>First district-level fiscal study in the country. Quantified gap above USD 55M per year. Cadastral gap factor of 12.1x.</p><div class="project-tags"><span class="tag tag-delivered">Delivered</span><span class="tag tag-fiscal">Territorial</span></div></div></div>
-        </div>
-        <div style="margin-top: 1.5rem;"><a href="/proyectos" class="btn btn-outline">See all projects</a></div>
-      </section>
+    <section class="mis-blq mis-panel"><div class="mis-env">
+      <div class="mis-kick">Selected work</div>
+      <h2 class="mis-tit">Four things done for the first time</h2>
+      <div class="mis-obras">
+        <a class="mis-obra" href="https://myintelligentsystem.com" target="_blank"><span class="mis-anio">2026 &mdash; now</span><div><h3>My Intelligent System</h3><p>I install intelligent systems, automation and applied AI for businesses, organizations and institutions. Closed price per stage, no monthly fee.</p><div class="mis-datos"><span>Installed systems, not hours</span><span>Proprietary kernel + APIs</span><span>No monthly fee</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="https://desarrollocomunitario.org/gemelodigital" target="_blank"><span class="mis-anio">2026</span><div><h3>Nosara 3D Digital Twin</h3><p>The first digital twin of a territory in Central America: a three-dimensional replica built on measured relief and high-resolution satellite imagery, which can be toured, queried and used to simulate scenarios.</p><div class="mis-datos"><span>400+ data layers</span><span>Cartography from 1944</span><span>Climate projections to 2100</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="/proyectos"><span class="mis-anio">2024</span><div><h3>Nosara Community Census</h3><p>Coordination of the first district-level census in Costa Rica, with technical advisory from INEC.</p><div class="mis-datos"><span>USD 120,000 raised</span><span>USD 50,000 in kind</span><span>95.1% coverage</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="/proyectos"><span class="mis-anio">2026</span><div><h3>Nosara Territorial Fiscal Balance</h3><p>The first district-level fiscal study in the country: what the territory produces, what it receives back, and the distance between the two.</p><div class="mis-datos"><span>Gap above USD 55M/yr</span><span>Cadastral factor 12.1x</span><span>96.6% informal lodging</span></div></div><span class="mis-flecha">&#8599;</span></a>
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/proyectos" class="mis-btn mis-fantasma">See all projects</a></p>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">From the blog</p>
-        <h2 class="section-title">Recent writing</h2>
-        <div class="pub-section" style="margin-top: 1rem;">
-          {latestPosts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="pub-item" style="text-decoration: none; color: inherit; display: block;">
-              <div class="pub-meta">
-                <h3>{post.data.title_en}</h3>
-                <div class="pub-source">{fmtDateEn(post.data.date)}</div>
-                <p>{post.data.summary_en}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div style="margin-top: 1.25rem;"><a href="/blog" class="btn btn-outline">Read all posts</a></div>
-      </section>
-    </div>
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">Learning out loud</div>
+      <h2 class="mis-tit">What I publish, and what I am still thinking through</h2>
+      <div class="mis-rej">
+        <a class="mis-nodo" href="/publicaciones"><i class="mis-pt"></i><span class="mis-et">Publications</span><h3>Studies and reports</h3><p>Fiscal balance, census methodology and applied research, open for anyone to check.</p><div class="mis-barras"><i></i><i></i></div></a>
+        <a class="mis-nodo" href="/blog"><i class="mis-pt mis-esp"></i><span class="mis-et">Blog</span><h3>Notes in progress</h3><p>Teaching as I go: systems thinking, territorial data and the questions I have not resolved yet.</p><div class="mis-barras"><i></i><i></i></div></a>
+      </div>
+    </div></section>
+
+    <section class="mis-cierre"><div class="mis-env">
+      <div class="mis-kick">Working together</div>
+      <h2>If your territory or your organization needs to be read as a system</h2>
+      <p>I work in Spanish and English, with communities, universities, international cooperation, foundations and private philanthropy.</p>
+      <div class="mis-acciones">
+        <a class="mis-btn" href="/contacto">Start a conversation</a>
+        <a class="mis-txt" href="https://linkedin.com/in/emmanuelgpcr" target="_blank">LinkedIn &#8599;</a>
+        <a class="mis-txt" href="/files/emmanuel-gutierrez.vcf" download>Save contact card</a>
+      </div>
+    </div></section>
+  </div>
   </div>
 
   <!-- ========== ESPANOL ========== -->
   <div class="lang-es">
-    <div class="container">
-      <section class="hero">
-        <div>
-          <h1>Emmanuel Gutiérrez Pizarro</h1>
-          <p class="hero-tagline">Director, My Intelligent System y JP Asesores &middot; Sistemas, IA e inteligencia territorial</p>
-          <p class="hero-desc">
-            Instalo sistemas inteligentes, automatización e IA aplicada para negocios, organizaciones e
-            instituciones a través de <strong>My Intelligent System</strong>. Desde hace más de 13 años también
-            convierto evidencia en decisiones en inteligencia territorial, datos y sostenibilidad financiera en
-            Costa Rica y Centroamérica, incluyendo el primer gemelo digital 3D de un distrito en el país.
-          </p>
-          <div class="hero-btns">
-            <a href="https://myintelligentsystem.com" class="btn btn-primary" target="_blank">My Intelligent System ↗</a>
-            <a href="https://myintelligentsystem.com/tour/" class="btn btn-outline" target="_blank">Recorra mi oficina en 3D ↗</a>
-            <a href="/contacto" class="btn btn-outline">Contacto</a>
-            <a href="/files/emmanuel-gutierrez.vcf" class="btn btn-outline" download>Guardar tarjeta de contacto</a>
-          </div>
-        </div>
-        <div class="avatar">
-          <img src="/img/profile.jpg" alt="Emmanuel Gutiérrez Pizarro" />
-        </div>
-      </section>
+  <div class="mis-page">
+    <div class="mis-puntos"></div>
 
-      <div class="stats-bar">
-        <div class="stat"><div class="stat-num">13+</div><div class="stat-label">Años de experiencia</div></div>
-        <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Organizaciones atendidas</div></div>
-        <div class="stat"><div class="stat-num">95.1%</div><div class="stat-label">Cobertura Censo Nosara</div></div>
-        <div class="stat"><div class="stat-num">$55M+</div><div class="stat-label">Brecha fiscal cuantificada</div></div>
+    <section class="mis-hero"><div class="mis-env">
+      <div>
+        <div class="mis-kick"><s></s><span>Inteligencia territorial &middot; Costa Rica</span></div>
+        <h1>Leo territorios, entidades y empresas como <em>sistemas</em></h1>
+        <p class="mis-lead">Datos, evidencia fiscal y herramientas que se quedan donde se construyen. Trece años junto a comunidades, organizaciones sociales e instituciones de Centroamérica.</p>
+        <div class="mis-acciones">
+          <a class="mis-btn" href="/proyectos">Ver el trabajo</a>
+          <a class="mis-btn mis-fantasma" href="https://myintelligentsystem.com" target="_blank">My Intelligent System &#8599;</a>
+          <a class="mis-btn mis-fantasma" href="https://myintelligentsystem.com/tour/" target="_blank">Recorra mi oficina en 3D &#8599;</a>
+          <a class="mis-btn mis-fantasma" href="/contacto">Escríbame &rarr;</a>
+        </div>
       </div>
+      <div class="mis-lienzo" id="mis-hero-es"></div>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">Recién entregado</p>
-        <h2 class="section-title">Lo que he entregado &middot; abierto a nuevos proyectos</h2>
-        <div class="pub-section" style="margin-top: 1rem;">
-          <div class="pub-item"><a href="https://myintelligentsystem.com" target="_blank" style="text-decoration:none; color:inherit;"><div class="pub-meta"><h3>My Intelligent System <span class="pub-badge pub-badge-done">Lanzado</span></h3><div class="pub-source">Sistemas inteligentes, automatización e IA aplicada instalados para negocios y organizaciones</div></div></a></div>
-          <div class="pub-item"><a href="https://desarrollocomunitario.org/gemelodigital" target="_blank" style="text-decoration:none; color:inherit;"><div class="pub-meta"><h3>Gemelo Digital 3D de Nosara <span class="pub-badge pub-badge-done">Entregado</span></h3><div class="pub-source">Primer gemelo digital 3D a nivel de distrito en Costa Rica: 400+ capas de datos, simulaciones que se actualizan solas</div></div></a></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Sistemas Operativos para Inteligencia Territorial <span class="pub-badge pub-badge-done">Entregado</span></h3><div class="pub-source">Framework: Censo + Balance Fiscal + Mapa de Voces + cartografía SIG + reportes por localidad</div></div></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Modelos predictivos para decisiones territoriales <span class="pub-badge pub-badge-done">Entregado</span></h3><div class="pub-source">Metodología: modelos auditables con protocolo de 6 chequeos, catálogo simple a complejo</div></div></div>
-          <div class="pub-item"><div class="pub-meta"><h3>Modelos de gobernanza para restauración comunitaria-institucional <span class="pub-badge pub-badge-done">Entregado</span></h3><div class="pub-source">Marco de tres funciones (Arquitecto · Oráculo · Ruptura de Ciclo) para romper ciclos extractivos</div></div></div>
-        </div>
-        <div style="margin-top: 1.25rem; display:flex; gap:10px; flex-wrap:wrap;"><a href="/contacto" class="btn btn-primary">Abierto a nuevos proyectos, hablemos</a><a href="/publicaciones" class="btn btn-outline">Ver todas las publicaciones</a></div>
-      </section>
+    <section class="mis-cifras"><div class="mis-env">
+      <div class="mis-cifra"><b>USD 55M+</b><span>Brecha fiscal anual documentada</span></div>
+      <div class="mis-cifra"><b>95.1%</b><span>Cobertura de hogares, censo de Nosara</span></div>
+      <div class="mis-cifra"><b>60+</b><span>Organizaciones y pymes acompañadas</span></div>
+      <div class="mis-cifra"><b>13</b><span>Años construyendo capacidad instalada</span></div>
+      <div class="mis-cifra"><b>400+</b><span>Capas en el gemelo digital de Nosara</span></div>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">Foco</p>
-        <h2 class="section-title">En qué trabajo</h2>
-        <div class="areas-grid">
-          <div class="area-card flagship">
-            <div class="area-icon flagship"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-            <h3>Ingeniería desplegada (forward-deployed)</h3>
-            <p>Ingeniería práctica y embebida para personas, entidades y negocios. Trabajo dentro de su operación, con sus datos reales, y dejo un sistema funcionando antes de irme, no una presentación.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon fiscal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-            <h3>Inteligencia territorial</h3>
-            <p>Balances fiscales y territoriales subnacionales, sistemas de datos y evidencia para decisiones a nivel distrital y municipal.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon finance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <h3>Ciencia de datos</h3>
-            <p>Análisis, indicadores y sistemas de datos que convierten información en evidencia útil para la acción.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon data"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="6" x2="12" y2="10"/><line x1="10.5" y1="13.5" x2="5.5" y2="16.5"/><line x1="13.5" y1="13.5" x2="18.5" y2="16.5"/><line x1="6" y1="18" x2="18" y2="18"/></svg></div>
-            <h3>Pensamiento sistémico y sistemas complejos</h3>
-            <p>Leer los territorios como sistemas adaptativos complejos: bucles de retroalimentación, puntos de palanca y dinámicas emergentes. El siguiente capítulo de cómo trabajo.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon fiscal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg></div>
-            <h3>Ingeniería del conocimiento para IA</h3>
-            <p>Grafos de conocimiento curados, ontologías y sistemas de datos auditables. La base que hace que RAG e IA agéntica realmente funcionen: específicos por dominio, con verdad graduada, replicables.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon funds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
-            <h3>IA aplicada a lo social</h3>
-            <p>Inteligencia artificial aplicada a desafíos sociales y colectivos, de la automatización al análisis territorial.</p>
-          </div>
-          <div class="area-card">
-            <div class="area-icon finance"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg></div>
-            <h3>Gobernanza y tecnología cívica</h3>
-            <p>Gobernanza digital, govtech y procesos participativos: plataformas que le dan a las comunidades voz real, construidas para cumplir con la protección de datos.</p>
-          </div>
-        </div>
-      </section>
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">En qué trabajo</div>
+      <h2 class="mis-tit">Cuatro prácticas con la misma lente</h2>
+      <p class="mis-baja">Bucles de retroalimentación, puntos de palanca y dinámicas emergentes: el pensamiento sistémico es lo que da forma a cómo diseño herramientas, leo evidencia y enmarco decisiones.</p>
+      <div class="mis-rej">
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">01 &middot; Territorio</span><h3>Inteligencia territorial</h3><p>Censo, catastro, gemelo digital y planificación geoespacial para ver el distrito como realmente es.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">02 &middot; Fiscal</span><h3>Finanzas públicas subnacionales</h3><p>Balances fiscales, cuantificación de brechas y sostenibilidad financiera para gobiernos locales y organizaciones.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">03 &middot; Datos</span><h3>Ciencia de datos y evaluación</h3><p>Investigación aplicada, medición de resultados y evaluación de impacto con métodos que resisten el escrutinio.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt mis-esp"></i><span class="mis-et">04 &middot; IA aplicada</span><h3>IA aplicada a lo colectivo</h3><p>Inteligencia artificial para lo social, soberanía de datos y educación. El capítulo que escribo ahora.</p><div class="mis-barras"><i></i><i></i></div></div>
+      </div>
+    </div></section>
 
-      <section class="projects">
-        <p class="section-tag">Proyectos destacados</p>
-        <h2 class="section-title">Construido con impacto</h2>
-        <div class="project-list">
-          <div class="project-item"><div class="project-year">2026 - hoy</div><div class="project-info"><h3>My Intelligent System</h3><p>Sistemas inteligentes, automatización e IA aplicada instalados para negocios y organizaciones. Kernel propio, precio cerrado por etapa, sin cuota mensual.</p><div class="project-tags"><span class="tag tag-flagship">Insignia</span><span class="tag tag-systems">Sistemas e IA</span></div></div></div>
-          <div class="project-item"><div class="project-year">2026</div><div class="project-info"><h3>Gemelo Digital 3D de Nosara</h3><p>Primer gemelo digital 3D a nivel de distrito en Costa Rica, con más de 400 capas de datos, cartografía histórica desde 1944 hasta hoy, y simulaciones climáticas y de riesgo que se actualizan solas.</p><div class="project-tags"><span class="tag tag-delivered">Entregado</span><span class="tag tag-data">Datos</span></div></div></div>
-          <div class="project-item"><div class="project-year">2024</div><div class="project-info"><h3>Censo Comunitario de Nosara</h3><p>Primer censo a nivel de distrito en Costa Rica. Cobertura del 95.1% de hogares, con asesoría técnica del INEC. Base del framework Sistemas Operativos para Inteligencia Territorial.</p><div class="project-tags"><span class="tag tag-delivered">Entregado</span><span class="tag tag-data">Datos</span><span class="tag tag-fiscal">Territorial</span></div></div></div>
-          <div class="project-item"><div class="project-year">2026</div><div class="project-info"><h3>Balance Fiscal Territorial de Nosara</h3><p>Primer estudio fiscal a nivel de distrito en el país. Brecha cuantificada superior a USD 55 millones anuales. Factor de brecha catastral de 12.1x.</p><div class="project-tags"><span class="tag tag-delivered">Entregado</span><span class="tag tag-fiscal">Territorial</span></div></div></div>
-        </div>
-        <div style="margin-top: 1.5rem;"><a href="/proyectos" class="btn btn-outline">Ver todos los proyectos</a></div>
-      </section>
+    <section class="mis-blq mis-panel"><div class="mis-env">
+      <div class="mis-kick">Trabajo seleccionado</div>
+      <h2 class="mis-tit">Cuatro cosas hechas por primera vez</h2>
+      <div class="mis-obras">
+        <a class="mis-obra" href="https://myintelligentsystem.com" target="_blank"><span class="mis-anio">2026 &mdash; ahora</span><div><h3>My Intelligent System</h3><p>Instalo sistemas inteligentes, automatización e IA aplicada para negocios, organizaciones e instituciones. Precio cerrado por etapa, sin cuota mensual.</p><div class="mis-datos"><span>Sistemas instalados, no horas</span><span>Kernel propio + APIs</span><span>Sin cuota mensual</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="https://desarrollocomunitario.org/gemelodigital" target="_blank"><span class="mis-anio">2026</span><div><h3>Gemelo Digital 3D de Nosara</h3><p>El primer gemelo digital de un territorio en Centroamérica: una réplica tridimensional construida sobre relieve medido e imagen satelital de alta resolución, que se puede recorrer, consultar y usar para simular escenarios.</p><div class="mis-datos"><span>400+ capas de información</span><span>Cartografía desde 1944</span><span>Proyecciones climáticas a 2100</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="/proyectos"><span class="mis-anio">2024</span><div><h3>Censo Comunitario de Nosara</h3><p>Coordinación del primer censo a nivel de distrito en Costa Rica, con asesoría técnica del INEC.</p><div class="mis-datos"><span>USD 120,000 gestionados</span><span>USD 50,000 en especie</span><span>95.1% de cobertura</span></div></div><span class="mis-flecha">&#8599;</span></a>
+        <a class="mis-obra" href="/proyectos"><span class="mis-anio">2026</span><div><h3>Balance Fiscal Territorial de Nosara</h3><p>El primer estudio fiscal a nivel de distrito del país: lo que el territorio produce, lo que recibe de vuelta y la distancia entre ambos.</p><div class="mis-datos"><span>Brecha superior a USD 55M/año</span><span>Factor catastral 12.1x</span><span>96.6% alojamiento informal</span></div></div><span class="mis-flecha">&#8599;</span></a>
+      </div>
+      <p style="margin-top: 1.5rem;"><a href="/proyectos" class="mis-btn mis-fantasma">Ver todos los proyectos</a></p>
+    </div></section>
 
-      <section class="areas">
-        <p class="section-tag">Del blog</p>
-        <h2 class="section-title">Escritos recientes</h2>
-        <div class="pub-section" style="margin-top: 1rem;">
-          {latestPosts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="pub-item" style="text-decoration: none; color: inherit; display: block;">
-              <div class="pub-meta">
-                <h3>{post.data.title_es}</h3>
-                <div class="pub-source">{fmtDateEs(post.data.date)}</div>
-                <p>{post.data.summary_es}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div style="margin-top: 1.25rem;"><a href="/blog" class="btn btn-outline">Leer todos los posts</a></div>
-      </section>
-    </div>
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">Aprender en voz alta</div>
+      <h2 class="mis-tit">Lo que publico y lo que todavía estoy pensando</h2>
+      <div class="mis-rej">
+        <a class="mis-nodo" href="/publicaciones"><i class="mis-pt"></i><span class="mis-et">Publicaciones</span><h3>Estudios e informes</h3><p>Balance fiscal, metodología censal e investigación aplicada, abiertos para que cualquiera los revise.</p><div class="mis-barras"><i></i><i></i></div></a>
+        <a class="mis-nodo" href="/blog"><i class="mis-pt mis-esp"></i><span class="mis-et">Blog</span><h3>Notas en proceso</h3><p>Enseñar mientras avanzo: pensamiento sistémico, datos territoriales y las preguntas que aún no resuelvo.</p><div class="mis-barras"><i></i><i></i></div></a>
+      </div>
+    </div></section>
+
+    <section class="mis-cierre"><div class="mis-env">
+      <div class="mis-kick">Trabajar juntos</div>
+      <h2>Si su territorio o su organización necesita leerse como un sistema</h2>
+      <p>Trabajo en español e inglés, con comunidades, universidades, cooperación internacional, fundaciones y filantropía privada.</p>
+      <div class="mis-acciones">
+        <a class="mis-btn" href="/contacto">Empecemos una conversación</a>
+        <a class="mis-txt" href="https://linkedin.com/in/emmanuelgpcr" target="_blank">LinkedIn &#8599;</a>
+        <a class="mis-txt" href="/files/emmanuel-gutierrez.vcf" download>Guardar tarjeta de contacto</a>
+      </div>
+    </div></section>
+  </div>
   </div>
 
+<script src="/js/mis-hero.js" is:inline></script>
+<script is:inline>
+(function () {
+  var comun = {
+    w: 520, h: 400,
+    fantasma: [[150, 96, 186, 60, .5], [150, 344, 190, 380, .5], [368, 110, 420, 90, .5], [368, 300, 412, 340, .5]],
+    enlaces: [[0, 3, .5], [1, 3, .5], [2, 3, .5], [3, 4, .5], [3, 5, .5], [3, 6, .5]],
+    movil: {
+      w: 330, h: 392,
+      fantasma: [[24, 352, 120, 376, .5], [306, 352, 210, 376, .5]],
+      enlaces: [[0, 1, .5], [0, 2, .5]]
+    }
+  };
+  function nodos(L) {
+    return [
+      { x: 8, y: 26, w: 126, h: 56, et: L[0], estado: 'activo', b1: .7, b2: .4 },
+      { x: 8, y: 172, w: 126, h: 56, et: L[1], estado: 'activo', b1: .86, b2: .5 },
+      { x: 8, y: 318, w: 126, h: 56, et: L[2], estado: 'espera', b1: .45, b2: .3 },
+      { x: 186, y: 104, w: 172, h: 212, et: 'EMMANUEL GUTIÉRREZ', fuerte: true, estado: 'activo', pie: 'COSTA RICA', foto: '/img/profile-portrait.jpg', fotoAlto: 158 },
+      { x: 394, y: 26, w: 118, h: 56, et: L[3], estado: 'activo', b1: .6, b2: .35 },
+      { x: 394, y: 172, w: 118, h: 56, et: L[4], estado: 'activo', b1: .75, b2: .45 },
+      { x: 394, y: 318, w: 118, h: 56, et: L[5], estado: 'espera', b1: .5, b2: .28 }
+    ];
+  }
+  function movilNodos(L) {
+    return [
+      { x: 60, y: 12, w: 210, h: 250, et: 'EMMANUEL GUTIÉRREZ', fuerte: true, estado: 'activo', pie: 'COSTA RICA', foto: '/img/profile-portrait.jpg', fotoAlto: 188 },
+      { x: 8, y: 318, w: 142, h: 58, et: L[0], estado: 'activo', b1: .86, b2: .5 },
+      { x: 180, y: 318, w: 142, h: 58, et: L[1], estado: 'espera', b1: .55, b2: .32 }
+    ];
+  }
+
+  var especEs = Object.assign({}, comun, {
+    alt: 'Rutas de datos que entran, se ordenan y salen como decisiones',
+    nodos: nodos(['TERRITORIO', 'DATOS', 'EVIDENCIA', 'DECISIÓN', 'HERRAMIENTA', 'CAPACIDAD']),
+    movil: Object.assign({}, comun.movil, { alt: 'Emmanuel Gutiérrez como nodo central del sistema', nodos: movilNodos(['DATOS', 'DECISIÓN']) })
+  });
+  var especEn = Object.assign({}, comun, {
+    alt: 'Data routes that come in, get organized and go out as decisions',
+    nodos: nodos(['TERRITORY', 'DATA', 'EVIDENCE', 'DECISION', 'TOOL', 'CAPACITY']),
+    movil: Object.assign({}, comun.movil, { alt: 'Emmanuel Gutiérrez as the central node of the system', nodos: movilNodos(['DATA', 'DECISION']) })
+  });
+
+  if (window.MIS_HERO) {
+    MIS_HERO('#mis-hero-en', especEn);
+    MIS_HERO('#mis-hero-es', especEs);
+  }
+})();
+</script>
+
 </Layout>
+
+<style is:global>
+  @import '../styles/mis-personal.css';
+</style>
