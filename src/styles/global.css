@@ -356,6 +356,9 @@ img { max-width: 100%; display: block; }
   50% { opacity: 0.25; transform: scale(0.7); }
 }
 
+.pub-badge-done { background: var(--accent-50, #e1f5ee); color: var(--accent, #1D9E75); }
+.pub-badge-done::before { background: var(--accent, #1D9E75); animation: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .pub-badge::before { animation: none; opacity: 1; }
 }
@@ -427,6 +430,7 @@ img { max-width: 100%; display: block; }
 .hero-btns {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -639,6 +643,9 @@ img { max-width: 100%; display: block; }
 .tag-data { background: var(--accent-50); color: var(--accent); }
 .tag-funds { background: var(--warm-50); color: var(--warm); }
 .tag-model { background: var(--coral-50); color: var(--coral); }
+.tag-systems { background: var(--brand-50); color: var(--brand); }
+.tag-delivered { background: var(--accent-50); color: var(--accent); font-weight: 600; }
+.tag-flagship { background: var(--warm-50); color: var(--warm); font-weight: 600; }
 
 /* ABOUT / BIO */
 .bio {
