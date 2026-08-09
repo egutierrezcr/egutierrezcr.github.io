@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Emmanuel Gutiérrez Pizarro
+N:Gutiérrez Pizarro;Emmanuel;;;
+ORG:JP Asesores S.R.L.
+TITLE:Director\, JP Asesores & Investigador\, ADC
+EMAIL;TYPE=WORK:jgutierrez@jpasesorescr.com
+EMAIL;TYPE=HOME:adcdesarrollocomunitario@gmail.com
+TEL;TYPE=CELL,VOICE:+506 6142-7330
+URL:https://egutierrezcr.github.io/
+URL;TYPE=LinkedIn:https://linkedin.com/in/emmanuelgpcr
+ADR;TYPE=WORK:;;;;;;Costa Rica
+NOTE:Consultor en innovación\, ciencia de datos e inteligencia territorial.
+END:VCARD
