@@ -14,62 +14,159 @@ function fmtDate(d: Date, locale: string) {
 
   <!-- ============ ENGLISH ============ -->
   <div class="lang-en">
-    <div class="container">
-      <div class="page-header">
-        <h1>Blog</h1>
-        <p>Notes, op-eds and analysis on territorial fiscal intelligence, community data and the political economy of territories.</p>
-      </div>
+  <div class="mis-page">
+    <div class="mis-puntos"></div>
 
-      <section class="pub-section">
-        {posts.length === 0 && (
-          <p>No posts yet. Stay tuned.</p>
-        )}
+    <section class="mis-hero"><div class="mis-env">
+      <div>
+        <div class="mis-kick"><s></s><span>Blog &middot; Learning out loud</span></div>
+        <h1>Notes <em>in progress</em></h1>
+        <p class="mis-lead">I learn by teaching as I go. Notes, op-eds and analysis on territorial fiscal intelligence, community data and the political economy of territories.</p>
+        <div class="mis-acciones">
+          <a class="mis-btn" href="#notas">Read the notes</a>
+          <a class="mis-btn mis-fantasma" href="/publicaciones">See publications</a>
+        </div>
+      </div>
+      <div class="mis-lienzo mis-deco" id="mis-hero-blog-en"></div>
+    </div></section>
+
+    <section class="mis-blq mis-panel"><div class="mis-env">
+      <div class="mis-kick">Latest</div>
+      <h2 class="mis-tit" id="notas">Writing</h2>
+      {posts.length === 0 && (<p class="mis-baja">No posts yet. Stay tuned.</p>)}
+      <div class="mis-obras">
         {posts.map((post) => (
-          <article class="pub-item">
-            <div class="pub-meta">
-              <h3><a href={`/blog/${post.id}/`}>{post.data.title_en}</a></h3>
-              <div class="pub-source">
-                {fmtDate(post.data.date, 'en-US')}
-                {post.data.original_outlet && ` - Originally in ${post.data.original_outlet}`}
-                {post.data.tags.length > 0 && ` - ${post.data.tags.join(' · ')}`}
-              </div>
+          <a class="mis-obra" href={`/blog/${post.id}/`}>
+            <span class="mis-anio">{fmtDate(post.data.date, 'en-US')}</span>
+            <div>
+              <h3>{post.data.title_en}</h3>
               <p>{post.data.summary_en}</p>
-              <a href={`/blog/${post.id}/`} class="pub-action">Read more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <div class="mis-datos">
+                {post.data.original_outlet && <span>Originally in {post.data.original_outlet}</span>}
+                {post.data.tags.map((t) => (<span>{t}</span>))}
+              </div>
             </div>
-          </article>
+            <span class="mis-flecha">&#8599;</span>
+          </a>
         ))}
-      </section>
-    </div>
+      </div>
+    </div></section>
+
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">Recurring topics</div>
+      <h2 class="mis-tit">What I keep coming back to</h2>
+      <div class="mis-rej">
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">Systems</span><h3>Territories as adaptive systems</h3><p>Feedback loops, leverage points and emergent dynamics applied to real districts.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">Data</span><h3>Data sovereignty</h3><p>Who owns the information a community produces about itself, and who gets to use it.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt mis-esp"></i><span class="mis-et">AI</span><h3>Applied AI in small organizations</h3><p>What actually works in an organization with three people and no budget for pilots.</p><div class="mis-barras"><i></i><i></i></div></div>
+      </div>
+    </div></section>
+
+    <section class="mis-cierre"><div class="mis-env">
+      <div class="mis-kick">Working together</div>
+      <h2>Every project is a chance to leave a tool behind</h2>
+      <p>I operate in Spanish and English, with communities, universities, international cooperation, foundations and private philanthropy.</p>
+      <div class="mis-acciones">
+        <a class="mis-btn" href="/contacto">Write to me</a>
+        <a class="mis-txt" href="https://linkedin.com/in/emmanuelgpcr" target="_blank">LinkedIn &#8599;</a>
+      </div>
+    </div></section>
+  </div>
   </div>
 
   <!-- ============ ESPANOL ============ -->
   <div class="lang-es">
-    <div class="container">
-      <div class="page-header">
-        <h1>Blog</h1>
-        <p>Notas, columnas y análisis sobre inteligencia fiscal territorial, datos comunitarios y la economía política de los territorios.</p>
-      </div>
+  <div class="mis-page">
+    <div class="mis-puntos"></div>
 
-      <section class="pub-section">
-        {posts.length === 0 && (
-          <p>Aun no hay publicaciones. Pronto.</p>
-        )}
+    <section class="mis-hero"><div class="mis-env">
+      <div>
+        <div class="mis-kick"><s></s><span>Blog &middot; Aprender en voz alta</span></div>
+        <h1>Notas <em>en proceso</em></h1>
+        <p class="mis-lead">Aprendo enseñando mientras avanzo. Notas, columnas y análisis sobre inteligencia fiscal territorial, datos comunitarios y la economía política de los territorios.</p>
+        <div class="mis-acciones">
+          <a class="mis-btn" href="#notas-es">Leer las notas</a>
+          <a class="mis-btn mis-fantasma" href="/publicaciones">Ver publicaciones</a>
+        </div>
+      </div>
+      <div class="mis-lienzo mis-deco" id="mis-hero-blog-es"></div>
+    </div></section>
+
+    <section class="mis-blq mis-panel"><div class="mis-env">
+      <div class="mis-kick">Últimas</div>
+      <h2 class="mis-tit" id="notas-es">Escritos</h2>
+      {posts.length === 0 && (<p class="mis-baja">Aún no hay publicaciones. Pronto.</p>)}
+      <div class="mis-obras">
         {posts.map((post) => (
-          <article class="pub-item">
-            <div class="pub-meta">
-              <h3><a href={`/blog/${post.id}/`}>{post.data.title_es}</a></h3>
-              <div class="pub-source">
-                {fmtDate(post.data.date, 'es-CR')}
-                {post.data.original_outlet && ` - Publicado originalmente en ${post.data.original_outlet}`}
-                {post.data.tags.length > 0 && ` - ${post.data.tags.join(' · ')}`}
-              </div>
+          <a class="mis-obra" href={`/blog/${post.id}/`}>
+            <span class="mis-anio">{fmtDate(post.data.date, 'es-CR')}</span>
+            <div>
+              <h3>{post.data.title_es}</h3>
               <p>{post.data.summary_es}</p>
-              <a href={`/blog/${post.id}/`} class="pub-action">Leer mas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <div class="mis-datos">
+                {post.data.original_outlet && <span>Publicado en {post.data.original_outlet}</span>}
+                {post.data.tags.map((t) => (<span>{t}</span>))}
+              </div>
             </div>
-          </article>
+            <span class="mis-flecha">&#8599;</span>
+          </a>
         ))}
-      </section>
-    </div>
+      </div>
+    </div></section>
+
+    <section class="mis-blq"><div class="mis-env">
+      <div class="mis-kick">Temas recurrentes</div>
+      <h2 class="mis-tit">A qué vuelvo siempre</h2>
+      <div class="mis-rej">
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">Sistemas</span><h3>Territorios como sistemas adaptativos</h3><p>Bucles de retroalimentación, puntos de palanca y dinámicas emergentes aplicados a distritos reales.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt"></i><span class="mis-et">Datos</span><h3>Soberanía de datos</h3><p>Quién es dueño de la información que una comunidad produce sobre sí misma y quién puede usarla.</p><div class="mis-barras"><i></i><i></i></div></div>
+        <div class="mis-nodo"><i class="mis-pt mis-esp"></i><span class="mis-et">IA</span><h3>IA aplicada en organizaciones pequeñas</h3><p>Qué funciona de verdad en una organización de tres personas y sin presupuesto para pilotos.</p><div class="mis-barras"><i></i><i></i></div></div>
+      </div>
+    </div></section>
+
+    <section class="mis-cierre"><div class="mis-env">
+      <div class="mis-kick">Trabajar juntos</div>
+      <h2>Cada proyecto es una oportunidad de dejar una herramienta instalada</h2>
+      <p>Opero en español e inglés, con comunidades, universidades, cooperación internacional, fundaciones y filantropía privada.</p>
+      <div class="mis-acciones">
+        <a class="mis-btn" href="/contacto">Escríbame</a>
+        <a class="mis-txt" href="https://linkedin.com/in/emmanuelgpcr" target="_blank">LinkedIn &#8599;</a>
+      </div>
+    </div></section>
+  </div>
   </div>
 
+<script src="/js/mis-hero.js" is:inline></script>
+<script is:inline>
+(function () {
+  var base = {
+    w: 520, h: 380,
+    fantasma: [[120, 70, 200, 40, .5], [120, 300, 210, 336, .5], [330, 60, 400, 100, .5]],
+    enlaces: [[0, 2, .5], [1, 2, .5], [2, 3, .5], [2, 4, .5]]
+  };
+  function nodos(L) {
+    return [
+      { x: 14, y: 40, w: 118, h: 54, et: L[0], estado: 'espera', b1: .4, b2: .24 },
+      { x: 14, y: 250, w: 118, h: 54, et: L[1], estado: 'espera', b1: .5, b2: .3 },
+      { x: 196, y: 150, w: 140, h: 74, et: L[2], fuerte: true, estado: 'activo', b1: .72, b2: .44, pie: L[3] },
+      { x: 400, y: 40, w: 112, h: 54, et: L[4], estado: 'activo', b1: .66, b2: .4 },
+      { x: 400, y: 250, w: 112, h: 54, et: L[5], estado: 'frio', b1: .35, b2: .2 }
+    ];
+  }
+  if (!window.MIS_HERO) return;
+  MIS_HERO('#mis-hero-blog-en', Object.assign({}, base, {
+    alt: 'Loose ideas gradually connecting into a note',
+    nodos: nodos(['QUESTION', 'READING', 'NOTE', 'IN PROGRESS', 'PRACTICE', 'STUDY'])
+  }));
+  MIS_HERO('#mis-hero-blog-es', Object.assign({}, base, {
+    alt: 'Ideas sueltas que se van conectando',
+    nodos: nodos(['PREGUNTA', 'LECTURA', 'NOTA', 'EN PROCESO', 'PRÁCTICA', 'ESTUDIO'])
+  }));
+})();
+</script>
+
 </Layout>
+
+<style is:global>
+  @import '../../styles/mis-personal.css';
+</style>

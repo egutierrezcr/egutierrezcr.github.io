@@ -17,17 +17,20 @@ function fmtDate(d: Date, locale: string) {
 
 <Layout title={`${post.data.title_en} - Emmanuel Gutiérrez Pizarro`} description={post.data.summary_en}>
 
-  <article class="container post">
+<div class="mis-page">
+  <div class="mis-puntos"></div>
+
+  <article class="mis-env post">
     <div class="lang-en">
       <header class="post-header">
         <div class="post-meta">
-          <a href="/blog/" class="post-back">← Back to blog</a>
+          <a href="/blog/" class="post-back">&larr; Back to blog</a>
         </div>
         <h1>{post.data.title_en}</h1>
         <div class="post-byline">
           <span>{fmtDate(post.data.date, 'en-US')}</span>
           {post.data.original_outlet && (
-            <span> · Originally in {post.data.original_outlet}</span>
+            <span> &middot; Originally in {post.data.original_outlet}</span>
           )}
         </div>
         {post.data.tags.length > 0 && (
@@ -41,13 +44,13 @@ function fmtDate(d: Date, locale: string) {
     <div class="lang-es">
       <header class="post-header">
         <div class="post-meta">
-          <a href="/blog/" class="post-back">← Volver al blog</a>
+          <a href="/blog/" class="post-back">&larr; Volver al blog</a>
         </div>
         <h1>{post.data.title_es}</h1>
         <div class="post-byline">
           <span>{fmtDate(post.data.date, 'es-CR')}</span>
           {post.data.original_outlet && (
-            <span> · Publicado originalmente en {post.data.original_outlet}</span>
+            <span> &middot; Publicado originalmente en {post.data.original_outlet}</span>
           )}
         </div>
         {post.data.tags.length > 0 && (
@@ -65,98 +68,115 @@ function fmtDate(d: Date, locale: string) {
     {post.data.original_url && (
       <div class="post-original">
         <div class="lang-en">
-          <a href={post.data.original_url} target="_blank" rel="noopener" class="btn btn-outline">Read the original article{post.data.original_lang === 'es' ? ' (Spanish)' : ''} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <a href={post.data.original_url} target="_blank" rel="noopener" class="mis-btn mis-fantasma">Read the original article{post.data.original_lang === 'es' ? ' (Spanish)' : ''} &#8599;</a>
         </div>
         <div class="lang-es">
-          <a href={post.data.original_url} target="_blank" rel="noopener" class="btn btn-outline">Leer el artículo original{post.data.original_lang === 'en' ? ' (Ingles)' : ''} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          <a href={post.data.original_url} target="_blank" rel="noopener" class="mis-btn mis-fantasma">Leer el artículo original{post.data.original_lang === 'en' ? ' (inglés)' : ''} &#8599;</a>
         </div>
       </div>
     )}
   </article>
+</div>
 
 </Layout>
 
+<style is:global>
+  @import '../../styles/mis-personal.css';
+</style>
+
 <style>
+  /* La lectura larga se centra y se estrecha: el resto del sitio usa 1120px,
+     un articulo necesita ~720px para no cansar. */
   .post {
-    max-width: 720px;
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+    max-width: 760px;
+    padding-top: clamp(40px, 7vh, 72px);
+    padding-bottom: clamp(48px, 9vh, 88px);
   }
   .post-header {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border, #e5e7eb);
+    border-bottom: 1px solid var(--mis-linea);
   }
-  .post-meta {
-    margin-bottom: 1rem;
-  }
+  .post-meta { margin-bottom: 1rem; }
   .post-back {
-    color: var(--brand, #185FA5);
+    font-family: var(--mis-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mis-navy2);
     text-decoration: none;
-    font-size: 0.95rem;
   }
-  .post-back:hover {
-    text-decoration: underline;
-  }
+  .post-back:hover { color: var(--mis-azul); }
   .post-header h1 {
-    margin: 0.5rem 0 1rem 0;
-    line-height: 1.2;
+    font-family: var(--mis-disp);
+    font-weight: 700;
+    font-size: clamp(28px, 4.4vw, 44px);
+    letter-spacing: -.035em;
+    line-height: 1.1;
+    margin: 0.6rem 0 1rem 0;
+    color: var(--mis-navy);
   }
   .post-byline {
-    color: var(--text-muted, #6b7280);
-    font-size: 0.95rem;
+    font-family: var(--mis-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--mis-navy2);
     margin-bottom: 1rem;
   }
-  .post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
+  .post-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .post-tag {
-    background: var(--brand-50, #eaf2fb);
-    color: var(--brand, #185FA5);
-    font-size: 0.78rem;
-    padding: 0.18rem 0.6rem;
+    background: var(--mis-panel);
+    border: 1px solid var(--mis-linea);
+    color: var(--mis-navy);
+    font-family: var(--mis-mono);
+    font-size: 10.5px;
+    letter-spacing: .05em;
+    padding: 0.28rem 0.7rem;
     border-radius: 999px;
-    font-weight: 500;
   }
   .post-body {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--mis-navy);
   }
-  .post-body :global(h2) {
-    margin-top: 2.2rem;
-    margin-bottom: 0.8rem;
-  }
+  .post-body :global(h2),
   .post-body :global(h3) {
-    margin-top: 1.6rem;
-    margin-bottom: 0.6rem;
+    font-family: var(--mis-disp);
+    font-weight: 700;
+    letter-spacing: -.028em;
+    line-height: 1.15;
+    color: var(--mis-navy);
   }
-  .post-body :global(p) {
-    margin: 0 0 1.1rem 0;
-  }
+  .post-body :global(h2) { font-size: clamp(21px, 2.8vw, 28px); margin: 2.4rem 0 0.8rem; }
+  .post-body :global(h3) { font-size: clamp(18px, 2.2vw, 22px); margin: 1.9rem 0 0.6rem; }
+  .post-body :global(p) { margin: 0 0 1.15rem 0; color: var(--mis-navy2); }
+  .post-body :global(strong) { color: var(--mis-navy); font-weight: 600; }
   .post-body :global(ul),
-  .post-body :global(ol) {
-    margin: 0 0 1.1rem 1.4rem;
-  }
-  .post-body :global(li) {
-    margin-bottom: 0.5rem;
-  }
+  .post-body :global(ol) { margin: 0 0 1.15rem 1.3rem; color: var(--mis-navy2); }
+  .post-body :global(li) { margin-bottom: 0.5rem; }
+  .post-body :global(em) { color: var(--mis-navy2); }
   .post-body :global(blockquote) {
-    border-left: 3px solid var(--brand, #185FA5);
+    border-left: 3px solid var(--mis-ambar);
     padding: 0.4rem 0 0.4rem 1.2rem;
-    margin: 1.4rem 0;
-    font-style: italic;
-    color: var(--text-strong, #1f2937);
+    margin: 1.5rem 0;
+    font-family: var(--mis-disp);
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(17px, 2.1vw, 20px);
+    line-height: 1.45;
+    letter-spacing: -.02em;
+    color: var(--mis-navy);
   }
+  .post-body :global(blockquote p) { color: var(--mis-navy); }
   .post-body :global(a) {
-    color: var(--brand, #185FA5);
+    color: var(--mis-azul);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 3px;
   }
   .post-original {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border, #e5e7eb);
+    border-top: 1px solid var(--mis-linea);
   }
 </style>

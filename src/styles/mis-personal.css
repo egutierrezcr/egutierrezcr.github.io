@@ -134,6 +134,32 @@ a.mis-nodo:hover { border-color: var(--mis-azul); transform: translateY(-2px); c
 .mis-page .dt-label { font-family: var(--mis-mono); font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--mis-navy2); }
 .mis-page .kg-frame-wrap { background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; }
 
+/* ── publicaciones: el marcado existente (pub- y video-) se conserva tal cual,
+   son ~30 entradas ya escritas y verificadas. Aqui se reviste con la paleta y
+   tipografia nuevas en vez de reescribirlo en clases mis-. ── */
+.mis-page .pub-section { margin-bottom: var(--mis-e6); }
+.mis-page .pub-section-head { display: flex; align-items: center; gap: 10px; margin-bottom: var(--mis-e3); }
+.mis-page .pub-section-head .pub-ico { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--mis-panel) !important; color: var(--mis-azul) !important; border: 1px solid var(--mis-linea); }
+.mis-page .pub-section-head h2 { font-family: var(--mis-disp); font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -.028em; color: var(--mis-navy); }
+.mis-page .pub-item { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--mis-e3); padding: var(--mis-e3) 0; border-bottom: 1px solid var(--mis-linea); }
+.mis-page .pub-item:first-of-type { border-top: 1px solid var(--mis-linea); }
+.mis-page .pub-meta h3 { font-family: var(--mis-disp); font-size: 17px; font-weight: 700; letter-spacing: -.024em; margin-bottom: 4px; color: var(--mis-navy); }
+.mis-page .pub-meta .pub-source { font-family: var(--mis-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mis-navy2); margin-bottom: 7px; }
+.mis-page .pub-meta p { font-size: 14.5px; color: var(--mis-navy2); line-height: 1.65; }
+.mis-page .pub-action { flex-shrink: 0; font-family: var(--mis-mono); font-size: 11px; letter-spacing: .06em; font-weight: 500; color: var(--mis-azul); white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; padding-top: 2px; text-decoration: none; }
+.mis-page .pub-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+.mis-page .pub-badge { background: var(--mis-panel); color: var(--mis-azul); border: 1px solid var(--mis-linea); font-family: var(--mis-mono); }
+.mis-page .pub-badge::before { background: var(--mis-azul); }
+.mis-page .pub-badge-done { background: var(--mis-panel); color: var(--mis-verde); }
+.mis-page .pub-badge-done::before { background: var(--mis-verde); }
+.mis-page .video-card { background: linear-gradient(135deg, var(--mis-azul) 0%, var(--mis-navy) 100%); }
+.mis-page .video-card-source { font-family: var(--mis-disp); }
+.mis-page .video-card-meta { font-family: var(--mis-mono); }
+.mis-page .video-caption { font-size: 13px; color: var(--mis-navy2); }
+.mis-page .video-more { font-size: 13px; color: var(--mis-navy2); border-top: 1px solid var(--mis-linea); }
+.mis-page .video-more a, .mis-page .video-caption a { color: var(--mis-azul); }
+.mis-page .video-play::after { border-left-color: var(--mis-azul); }
+
 /* ── perfil (trayectoria) ── */
 .mis-perfil { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 .mis-retrato { position: relative; background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; padding: 10px; }
