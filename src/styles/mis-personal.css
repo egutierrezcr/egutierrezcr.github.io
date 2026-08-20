@@ -160,6 +160,12 @@ a.mis-nodo:hover { border-color: var(--mis-azul); transform: translateY(-2px); c
 .mis-page .video-more a, .mis-page .video-caption a { color: var(--mis-azul); }
 .mis-page .video-play::after { border-left-color: var(--mis-azul); }
 
+/* Clip vertical (grabado en celular): conserva su proporcion 9:16 en vez de
+   recortarse dentro de la grilla 16:9 del resto de los videos. */
+.video-vertical { max-width: 300px; }
+.video-vertical > a.video-thumb { aspect-ratio: 9 / 16; }
+.video-vertical video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; background: #000; }
+
 /* ── perfil (trayectoria) ── */
 .mis-perfil { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 .mis-retrato { position: relative; background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; padding: 10px; }
