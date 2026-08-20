@@ -116,6 +116,38 @@ a.mis-nodo:hover { border-color: var(--mis-azul); transform: translateY(-2px); c
 .mis-obra:hover .mis-flecha { color: var(--mis-azul); }
 @media (max-width: 720px) { .mis-obra { grid-template-columns: minmax(0, 1fr) auto; gap: var(--mis-e2); } .mis-obra .mis-anio { grid-column: 1/-1; padding-top: 0; } }
 
+/* ── obra sin enlace (ficha estatica dentro de una lista) ── */
+.mis-obra-fija { cursor: default; }
+.mis-obra-fija:hover h3 { color: var(--mis-navy); }
+.mis-obra .mis-vinculo { display: inline-flex; align-items: center; gap: 5px; margin-top: var(--mis-e2); font-family: var(--mis-mono); font-size: 11.5px; letter-spacing: .06em; color: var(--mis-azul); text-decoration: none; }
+.mis-obra .mis-vinculo:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── estado: reutiliza el vocabulario de puntos del hero ── */
+.mis-estado { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mis-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--mis-navy2); margin-left: 10px; vertical-align: middle; }
+.mis-estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--mis-verde); flex-shrink: 0; }
+.mis-estado.mis-esp::before { background: var(--mis-ambar); }
+.mis-estado.mis-frio::before { background: var(--mis-gris); }
+
+/* ── medios embebidos dentro del nuevo lenguaje visual ── */
+.mis-page .dt-card { background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; }
+.mis-page .dt-card:hover { border-color: var(--mis-azul); }
+.mis-page .dt-label { font-family: var(--mis-mono); font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--mis-navy2); }
+.mis-page .kg-frame-wrap { background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; }
+
+/* ── perfil (trayectoria) ── */
+.mis-perfil { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.mis-retrato { position: relative; background: var(--mis-panel); border: 1.5px solid var(--mis-linea); border-radius: 7px; padding: 10px; }
+.mis-retrato img { width: 100%; border-radius: 4px; display: block; }
+.mis-retrato .mis-pt { position: absolute; top: -5px; right: -5px; width: 11px; height: 11px; border-radius: 50%; background: var(--mis-verde); border: 2.5px solid var(--mis-fondo); }
+.mis-retrato .mis-et { font-family: var(--mis-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--mis-navy2); padding: 10px 4px 3px; display: block; line-height: 1.7; }
+.mis-perfil p { font-size: 16.5px; color: var(--mis-navy2); }
+.mis-perfil .mis-decir { font-family: var(--mis-disp); font-weight: 500; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.42; letter-spacing: -.02em; color: var(--mis-navy); margin: 0 0 var(--mis-e4); }
+@media (max-width: 760px) { .mis-perfil { grid-template-columns: minmax(0, 1fr); } .mis-retrato { max-width: 250px; } }
+.mis-forma { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--mis-e3); }
+.mis-forma .mis-it { border-top: 2px solid var(--mis-azur); padding-top: var(--mis-e2); }
+.mis-forma .mis-it h4 { font-size: 16.5px; margin-bottom: 5px; letter-spacing: -.02em; color: var(--mis-navy); }
+.mis-forma .mis-it span { font-family: var(--mis-mono); font-size: 11.5px; color: var(--mis-navy2); line-height: 1.6; display: block; }
+
 /* ── cierre ── */
 .mis-cierre { background: var(--mis-navy); color: #fff; padding: var(--mis-e6) 0; position: relative; z-index: 1; }
 :root[data-theme="dark"] .mis-cierre { background: var(--mis-panel); }
@@ -126,4 +158,6 @@ a.mis-nodo:hover { border-color: var(--mis-azul); transform: translateY(-2px); c
 .mis-cierre a.mis-txt:hover { color: var(--mis-ambar); }
 
 @media (max-width: 860px) { .mis-hero .mis-env { grid-template-columns: minmax(0, 1fr); } .mis-lienzo { order: -1; max-width: 520px; } }
+/* El hero decorativo de las paginas interiores no aporta en movil: se oculta. */
+@media (max-width: 700px) { .mis-lienzo.mis-deco { display: none; } }
 @media (prefers-reduced-motion: reduce) { .mis-page * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
